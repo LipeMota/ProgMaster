@@ -1,0 +1,146 @@
+{
+  "identity": {
+    "name": "CodeQuest: ProgMaster",
+    "theme": "Neon Ronin (Cyberpunk x Medieval)",
+    "tone": "Gritty, High-Tech, Gamified, Immersive",
+    "target_audience": "Brazilian Developers (PT-BR), Gamers, Anime Fans"
+  },
+  "colors": {
+    "palette": {
+      "void_black": "#050505",
+      "panel_bg": "#12121A",
+      "panel_border": "#2A2A35",
+      "text_primary": "#E0E0E0",
+      "text_secondary": "#9494A8",
+      "neon_cyan": "#00F0FF",
+      "neon_pink": "#FF003C",
+      "neon_green": "#39FF14",
+      "neon_purple": "#BF00FF",
+      "neon_yellow": "#FIEE00",
+      "glass_surface": "rgba(18, 18, 26, 0.7)",
+      "overlay_dark": "rgba(0, 0, 0, 0.8)"
+    },
+    "semantic": {
+      "background": "#050505",
+      "primary": "#00F0FF",
+      "secondary": "#FF003C",
+      "success": "#39FF14",
+      "warning": "#FIEE00",
+      "error": "#FF003C",
+      "info": "#00F0FF",
+      "text": "#E0E0E0",
+      "muted": "#9494A8",
+      "border": "#2A2A35"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "SpaceMono-Regular",
+      "body": "System",
+      "code": "SpaceMono-Regular"
+    },
+    "sizes": {
+      "h1": 32,
+      "h2": 24,
+      "h3": 20,
+      "body": 16,
+      "small": 14,
+      "tiny": 12
+    },
+    "styles": {
+      "heading_uppercase": true,
+      "heading_tracking": 2,
+      "body_leading": 24
+    }
+  },
+  "spacing": {
+    "xs": 4,
+    "s": 8,
+    "m": 16,
+    "l": 24,
+    "xl": 32,
+    "xxl": 48,
+    "section_gap": 40
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "bg": "transparent",
+        "border": "#00F0FF",
+        "text": "#00F0FF",
+        "radius": 0,
+        "skew": "-10deg",
+        "glow": "0 0 10px #00F0FF"
+      },
+      "secondary": {
+        "bg": "#2A2A35",
+        "text": "#E0E0E0",
+        "radius": 4
+      }
+    },
+    "cards": {
+      "holo_panel": {
+        "bg": "rgba(18, 18, 26, 0.8)",
+        "border": "1px solid rgba(0, 240, 255, 0.3)",
+        "blur": 10,
+        "corner_accent": true
+      }
+    },
+    "inputs": {
+      "terminal": {
+        "bg": "#000000",
+        "border": "#333333",
+        "text": "#39FF14",
+        "font": "SpaceMono-Regular"
+      }
+    }
+  },
+  "layout_strategies": {
+    "dashboard": "HUD Layout: Top stats bar (fixed), Scrollable content area, Bottom Nav (fixed). Use absolute positioning for HUD elements.",
+    "map": "Isometric or Hexagonal Grid. Each node is a 'City' (Language) or 'Dungeon' (Challenge).",
+    "coding": "Split View: Top/Left (Mission Brief), Middle/Right (Code Editor), Bottom (Output/Console).",
+    "modal": "Full screen overlay with blur. Centered 'Holo-Panel' content."
+  },
+  "assets": {
+    "images": {
+      "login_bg": "https://images.unsplash.com/photo-1636793298539-63fda2e150fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxjeWJlcnB1bmslMjBoYWNrZXIlMjBhdmF0YXIlMjBuZW9ufGVufDB8fHx8MTc3MjU4NTMwNnww&ixlib=rb-4.1.0&q=85",
+      "map_castle": "https://images.unsplash.com/photo-1633994504418-41cb9cf929f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHw0fHxtZWRpZXZhbCUyMGZhbnRhc3klMjBjYXN0bGUlMjBkYXJrJTIwcGl4ZWwlMjBhcnR8ZW58MHx8fHwxNzcyNTg1MzA3fDA&ixlib=rb-4.1.0&q=85",
+      "map_forest": "https://images.unsplash.com/photo-1648937744941-71c865a40397?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwxfHxuZW9uJTIwZ3JlZW4lMjBkaWdpdGFsJTIwZm9yZXN0JTIwbWF0cml4JTIwc3R5bGV8ZW58MHx8fHwxNzcyNTg1MzA4fDA&ixlib=rb-4.1.0&q=85",
+      "map_city": "https://images.unsplash.com/photo-1702410073405-9fdbe4ae6341?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHw0fHxuZW9uJTIwZ3JlZW4lMjBkaWdpdGFsJTIwZm9yZXN0JTIwbWF0cml4JTIwc3R5bGV8ZW58MHx8fHwxNzcyNTg1MzA4fDA&ixlib=rb-4.1.0&q=85",
+      "avatar_hacker": "https://images.unsplash.com/photo-1640730204494-21ecdf5ce03a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxjeWJlcnB1bmslMjBoYWNrZXIlMjBhdmF0YXIlMjBuZW9ufGVufDB8fHx8MTc3MjU4NTMwNnww&ixlib=rb-4.1.0&q=85"
+    },
+    "icons": {
+      "library": "lucide-react-native",
+      "style": "Stroke width 1.5px, Color inherits form parent (Neon)"
+    }
+  },
+  "tech_stack": {
+    "framework": "React Native Expo",
+    "styling": "StyleSheet (Standard) + Lucide Icons",
+    "navigation": "Expo Router",
+    "fonts": "expo-font (SpaceMono)",
+    "storage": "AsyncStorage (Offline) / MongoDB (Sync)"
+  },
+  "accessibility": {
+    "contrast": "Ensure text is #E0E0E0 on dark backgrounds. Use darker shades for deactivated states.",
+    "touch_targets": "Minimum 44x44px for all interactive elements.",
+    "text_scaling": "Respect system font scale settings."
+  },
+  "instructions_to_main_agent": [
+    "1. INITIAL SETUP: Verify 'lucide-react-native' and 'expo-blur' are installed. If not, install them.",
+    "2. THEME IMPLEMENTATION: Create a 'constants/Theme.js' file exporting the colors and spacing defined here.",
+    "3. COMPONENT CREATION: Build reusable 'CyberButton', 'HoloCard', 'TerminalInput' components first.",
+    "4. LAYOUT: Use 'SafeAreaView' for all screens. Implement the persistent HUD in a layout wrapper.",
+    "5. NAVIGATION: Use Expo Router's file-based routing. Create a '_layout.tsx' in '/app' to handle the tab bar and headers.",
+    "6. ASSETS: Use the provided Unsplash URLs for backgrounds. For icons, use Lucide (e.g., 'Code', 'Map', 'User', 'Trophy').",
+    "7. DATA-TESTID: Add 'testID' prop to all interactables (React Native uses 'testID' instead of 'data-testid').",
+    "8. ANIMATION: Use 'react-native-reanimated' for micro-interactions (e.g., button press scale, toast slide-in).",
+    "9. LANGUAGE: All hardcoded text MUST be in PT-BR (Portuguese Brazil)."
+  ],
+  "universal_guidelines": [
+    "Avoid generic 'Flat UI'. Use depth, borders, and glow.",
+    "Do NOT use pure black (#000000) for cards; use #12121A.",
+    "Always check contrast ratios.",
+    "Use 'SpaceMono' for all headers to maintain the hacker aesthetic."
+  ]
+}
