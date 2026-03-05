@@ -58,7 +58,8 @@ export default function Onboarding() {
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-        <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+        <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="always"
+        keyboardDismissMode="interactive">
           {step === 0 && (
             <View style={styles.welcomeWrap} testID="welcome-screen">
               <Text style={styles.glitch}>{'< CodeQuest />'}</Text>
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
   stepTitle: { fontSize: FONT_SIZES.h2, fontFamily: 'SpaceMono', color: COLORS.neonCyan, letterSpacing: 3, marginBottom: SPACING.s },
   stepSub: { color: COLORS.textSecondary, fontSize: FONT_SIZES.body, marginBottom: SPACING.m, marginTop: SPACING.m },
   inputWrap: { flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.panelBg, borderWidth: 1, borderColor: COLORS.panelBorder, borderRadius: 8, paddingHorizontal: SPACING.m, width: '100%', marginBottom: SPACING.m },
-  input: { flex: 1, color: COLORS.textPrimary, fontSize: FONT_SIZES.body, paddingVertical: 14, marginLeft: SPACING.s, fontFamily: 'SpaceMono' },
+  input: { flex: 1, color: COLORS.textPrimary, fontSize: FONT_SIZES.body, paddingVertical: 14, marginLeft: SPACING.s, fontFamily: 'SpaceMono', height: 50 },
   avatarGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: SPACING.m, marginBottom: SPACING.l },
   avatarCard: { width: 90, height: 100, backgroundColor: COLORS.panelBg, borderWidth: 2, borderColor: COLORS.panelBorder, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   avatarEmoji: { fontSize: 36 },
