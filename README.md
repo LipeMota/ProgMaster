@@ -1,25 +1,32 @@
 # 🚀 ProgMaster - Code Quest
 
-> App gamificado de aprendizado de programação 100% offline
+> App gamificado de aprendizado de programação **100% offline e funcional**
+
+[![Status](https://img.shields.io/badge/Status-100%25%20Funcional-success)](#)
+[![Offline](https://img.shields.io/badge/Offline-First-blue)](#)
+[![Platform](https://img.shields.io/badge/Platform-Android-green)](#)
 
 ## 🎯 Visão Geral
 
-ProgMaster é um aplicativo mobile de aprendizado de programação que funciona completamente offline. Domine C#, SQL, Python e Java através de quizzes interativos, missões diárias e desafios de código.
+ProgMaster é um aplicativo mobile de aprendizado de programação que funciona **completamente offline**. Domine C#, SQL, Python e Java através de quizzes interativos, Pomodoro timer e sistema de recompensas gamificado.
 
-### ✨ Características Principais
+### ✨ Funcionalidades COMPLETAS
 
-- ✅ **100% Offline** - Funciona sem conexão com internet
-- ✅ **SQLite Local** - Todos os dados salvos no dispositivo
+- ✅ **100% Offline** - Zero dependência de internet
+- ✅ **SQLite Local** - Persistência robusta no dispositivo
 - ✅ **4 Linguagens** - C#, SQL, Python, Java
-- ✅ **100+ Questões** - Banco de questões mock integrado
+- ✅ **60 Questões** - 15 por linguagem + expansível
+- ✅ **Sistema de Quizzes** - MCQ interativo com feedback instantâneo
+- ✅ **Pomodoro Timer** - 25 min foco com recompensas automáticas
 - ✅ **Sistema de Níveis** - XP balanceado e progressão suave
-- ✅ **Design Minimalista** - Interface profissional e clean
-- ✅ **Feedback Instantâneo** - Toast notifications e haptic feedback
-- ✅ **Validação Robusta** - Inputs sanitizados e validados
+- ✅ **Design Minimalista** - Interface profissional dark mode
+- ✅ **Feedback Háptico** - Vibração em todas interações
+- ✅ **Toast Notifications** - Feedback visual moderno
+- ✅ **Streak System** - Incentivo diário automático
 
 ---
 
-## 📱 Screenshots
+## 📸 Screenshots
 
 _(Screenshots serão adicionados após primeiro build)_
 
@@ -30,14 +37,15 @@ _(Screenshots serão adicionados após primeiro build)_
 ### Frontend
 - **React Native** 0.81.5
 - **Expo** 54.0.33
-- **Expo Router** 6.0.22 (navegаção)
+- **Expo Router** 6.0.22 (navegação file-based)
 - **TypeScript** 5.9.3
 - **Expo SQLite** 15.0.5 (banco local)
 - **React Native Reanimated** 4.1.1 (animações)
-- **React Native Toast Message** 2.2.1 (notificações)
+- **React Native Toast Message** 2.2.1
+- **Expo Haptics** 15.0.8
 
 ### Backend
-~~Backend Python Flask~~ **REMOVIDO - App é 100% local**
+~~Backend Python Flask~~ **REMOVIDO** - App é 100% local
 
 ---
 
@@ -45,12 +53,14 @@ _(Screenshots serão adicionados após primeiro build)_
 
 ### Pré-requisitos
 
-- Node.js 18+ 
-- npm ou yarn
-- Expo CLI (`npm install -g expo-cli`)
-- EAS CLI (`npm install -g eas-cli`)
+```bash
+Node.js 18+
+npm ou yarn
+Expo CLI
+EAS CLI (para builds)
+```
 
-### 1️⃣ Clonar o Repositório
+### 1️⃣ Clonar Repositório
 
 ```bash
 git clone https://github.com/LipeMota/ProgMaster.git
@@ -68,10 +78,10 @@ yarn install
 ### 3️⃣ Executar em Desenvolvimento
 
 ```bash
-# Iniciar Expo
+# Iniciar Expo Dev Server
 npm start
 
-# Rodar no Android
+# Rodar no Android (dispositivo/emulador conectado)
 npm run android
 
 # Rodar no iOS (somente macOS)
@@ -82,41 +92,32 @@ npm run ios
 
 ## 📦 Build APK (Android)
 
-### Configuração Inicial do EAS
+### Gerar APK de Preview
 
 ```bash
 cd frontend
 
-# Login no Expo
+# Login no Expo (primeira vez)
 eas login
 
-# Configurar projeto (se ainda não configurado)
-eas build:configure
-```
-
-### Gerar APK de Desenvolvimento
-
-```bash
-# Build preview (APK para testes)
+# Build APK
 eas build --platform android --profile preview --clear-cache
 
-# Aguardar conclusão (~10-15 minutos)
-# Link do APK será fornecido no terminal
+# Aguardar ~10-15 minutos
+# Link do APK será exibido no terminal
 ```
 
 ### Gerar APK de Produção
 
 ```bash
-# Build de produção
 eas build --platform android --profile production
 ```
 
-### Baixar e Instalar
+### Instalar no Dispositivo
 
-1. Acesse o link fornecido pelo EAS no navegador
-2. Baixe o APK no celular Android
-3. Permita instalação de fontes desconhecidas
-4. Instale e abra o app
+1. Baixar APK do link fornecido pelo EAS
+2. Permitir instalação de fontes desconhecidas
+3. Instalar e abrir
 
 ---
 
@@ -125,87 +126,123 @@ eas build --platform android --profile production
 ```
 ProgMaster/
 ├── frontend/
-│   ├── app/                   # Telas do app
-│   │   ├── index.tsx          # Onboarding
-│   │   ├── _layout.tsx        # Layout global
-│   │   └── (tabs)/            # Navegação por tabs
+│   ├── app/                   # Telas (File-based routing)
+│   │   ├── index.tsx          # Onboarding ✅
+│   │   ├── _layout.tsx        # Layout global ✅
+│   │   ├── (tabs)/            # Navegação principal
+│   │   │   ├── dashboard.tsx  # Dashboard ✅
+│   │   │   ├── quizzes.tsx    # Seleção de linguagem ✅
+│   │   │   └── profile.tsx    # Perfil ✅
+│   │   ├── quiz-play.tsx      # Sistema de quiz ✅
+│   │   ├── pomodoro.tsx       # Timer Pomodoro ✅
+│   │   ├── pair-programming.tsx  # Placeholder
+│   │   ├── bug-hunt.tsx       # Placeholder
+│   │   ├── interview.tsx      # Placeholder
+│   │   └── dual-coding.tsx    # Placeholder
 │   ├── utils/                 # Utilitários
-│   │   ├── database.ts        # SQLite local
-│   │   ├── mockData.ts        # Questões offline
-│   │   ├── validation.ts      # Validações
-│   │   └── toastConfig.tsx    # Configuração Toast
+│   │   ├── database.ts        # SQLite engine ✅
+│   │   ├── mockData.ts        # 60 questões ✅
+│   │   ├── validation.ts      # Input validation ✅
+│   │   ├── toastConfig.tsx    # Toast config ✅
+│   │   └── api.ts             # Legacy adapter
 │   ├── constants/             # Constantes
-│   │   └── Theme.ts           # Cores e estilos
+│   │   └── Theme.ts           # Design system ✅
 │   ├── assets/                # Imagens e fontes
 │   ├── package.json
-│   └── eas.json               # Configuração EAS Build
+│   └── eas.json               # EAS Build config
 └── README.md
 ```
 
 ---
 
-## 💾 Banco de Dados Local
+## 💾 Banco de Dados Local (SQLite)
 
-### Tabelas SQLite
+### Tabelas
 
 #### `user`
-- `id` (TEXT) - ID único do usuário
-- `nome` (TEXT) - Nome do jogador
-- `avatar_id` (TEXT) - Avatar escolhido
-- `level` (INTEGER) - Nível atual
-- `xp` (INTEGER) - Experiência acumulada
-- `coins` (INTEGER) - Moedas do jogo
-- `streak_days` (INTEGER) - Dias consecutivos
-- `last_login` (TEXT) - Último acesso
+```sql
+CREATE TABLE user (
+  id TEXT PRIMARY KEY,
+  nome TEXT NOT NULL,
+  avatar_id TEXT NOT NULL,
+  level INTEGER DEFAULT 1,
+  xp INTEGER DEFAULT 0,
+  coins INTEGER DEFAULT 100,
+  streak_days INTEGER DEFAULT 0,
+  last_login TEXT,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+```
 
 #### `quiz_history`
-- `id` (TEXT) - ID do quiz
-- `user_id` (TEXT) - Referência ao usuário
-- `language` (TEXT) - Linguagem do quiz
-- `score` (INTEGER) - Pontuação
-- `total_questions` (INTEGER) - Total de questões
+```sql
+CREATE TABLE quiz_history (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  language TEXT NOT NULL,
+  score INTEGER NOT NULL,
+  total_questions INTEGER NOT NULL,
+  completed_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES user(id)
+);
+```
 
-#### `missions`
-- `id` (TEXT) - ID da missão
-- `type` (TEXT) - Tipo (daily/weekly)
-- `progress` (INTEGER) - Progresso atual
-- `completed` (INTEGER) - Status de conclusão
+#### `missions` e `inventory`
+Estruturas similares para futuras expansões.
 
 ---
 
-## ⚙️ Configurações
+## 🎮 Funcionalidades por Tela
 
-### `eas.json`
+### ✅ Totalmente Funcionais
 
-```json
-{
-  "build": {
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {
-      "autoIncrement": true
-    }
-  }
-}
+| Tela | Status | Features |
+|------|--------|----------|
+| **Onboarding** | ✅ 100% | Validação, avatares, SQLite |
+| **Dashboard** | ✅ 100% | Stats, progresso, ações rápidas |
+| **Quiz Play** | ✅ 100% | MCQ, feedback, recompensas |
+| **Pomodoro** | ✅ 100% | Timer 25min, auto-break, XP |
+| **Profile** | ✅ 90% | Edição de perfil |
+
+### 🚧 Placeholders Profissionais
+
+| Feature | Status | Nota |
+|---------|--------|------|
+| **Pair Programming** | 🚧 Placeholder | Coming Soon |
+| **Bug Hunt** | 🚧 Placeholder | Coming Soon |
+| **Interview Prep** | 🚧 Placeholder | Coming Soon |
+| **Dual Coding** | 🚧 Placeholder | Coming Soon |
+
+---
+
+## 📊 Sistema de Recompensas
+
+### XP por Atividade
+- Quiz correto: **10 XP**
+- Pomodoro completo: **25 XP**
+- Streak diário: **Auto-tracking**
+
+### Coins
+- Quiz correto: **2 💰**
+- Pomodoro completo: **5 💰**
+
+### Fórmula de Níveis
+```typescript
+Level 1-10: 100 + (level-1) * 50 XP
+Level 11-20: 600 + (level-10) * 100 XP
+Level 21-30: 1600 + (level-20) * 150 XP
+Level 31+: 3100 + (level-30) * 200 XP
 ```
-
-### `app.json`
-
-- **Nome:** CodeQuest: ProgMaster
-- **Slug:** codequest-progmaster
-- **Ícones:** Personalizados em `assets/images/`
-- **Splash Screen:** Background #050505
 
 ---
 
 ## 🧩 Testes
 
 ```bash
-# Rodar linter
+# Linter
 npm run lint
 
-# Testes (quando implementados)
+# Testes unitários (quando implementados)
 npm test
 ```
 
@@ -213,47 +250,48 @@ npm test
 
 ## 📝 Changelog
 
-### v1.0.0 (05/03/2026)
+### v1.0.0 (05/03/2026) - RELEASE INICIAL
 
 #### ✅ Implementado
-- Sistema de banco SQLite local
+- Sistema SQLite completo (4 tabelas)
+- 60 questões de programação
+- Sistema de quizzes 100% local
+- Pomodoro timer funcional
 - Validação robusta de inputs
-- Toast notifications
-- Sistema de XP balanceado
-- Redesign minimalista
+- Toast notifications globais
 - Feedback háptico
-- 100+ questões mock
-- 4 linguagens de programação
-- Animações suaves
+- Design minimalista profissional
+- Sistema de XP balanceado
+- Streak diário automático
+- Dashboard com estatísticas
+- 4 placeholders profissionais
 
 #### ❌ Removido
 - Backend Python Flask
 - Dependência de internet
-- Variáveis de ambiente
+- API REST antiga
 
 ---
 
 ## 👥 Contribuindo
 
-Contribuições são bem-vindas! Por favor:
-
 1. Fork o projeto
-2. Crie uma branch (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'feat: adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+2. Crie branch (`git checkout -b feature/nova-feature`)
+3. Commit (`git commit -m 'feat: adiciona feature'`)
+4. Push (`git push origin feature/nova-feature`)
+5. Abra Pull Request
 
 ---
 
 ## 📝 Licença
 
-Este projeto é privado e de uso pessoal.
+Projeto pessoal de uso educacional.
 
 ---
 
 ## 👤 Autor
 
-**Felipe (LipeMota)**
+**Felipe Mota (LipeMota)**
 - GitHub: [@LipeMota](https://github.com/LipeMota)
 - Projeto: [ProgMaster](https://github.com/LipeMota/ProgMaster)
 
@@ -261,8 +299,8 @@ Este projeto é privado e de uso pessoal.
 
 ## 📞 Suporte
 
-Se encontrar bugs ou tiver sugestões, abra uma [Issue](https://github.com/LipeMota/ProgMaster/issues).
+Encontrou bugs? Abra uma [Issue](https://github.com/LipeMota/ProgMaster/issues).
 
 ---
 
-**Feito com ❤️ e muita programação**
+**Feito com ❤️ e TypeScript**
