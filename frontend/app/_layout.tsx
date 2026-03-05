@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
+import { toastConfig } from '../utils/toastConfig';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,17 +24,22 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style="light" backgroundColor="#050505" />
-      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#050505' } }}>
+      <Stack screenOptions={{ 
+        headerShown: false, 
+        contentStyle: { backgroundColor: '#050505' },
+        animation: 'fade'
+      }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="quiz-play" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="pair-programming" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="dual-coding" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="bug-hunt" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="interview" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="pomodoro" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="profile" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="quiz-play" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="pair-programming" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="dual-coding" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="bug-hunt" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="interview" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="pomodoro" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="profile" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
       </Stack>
+      <Toast config={toastConfig} />
     </>
   );
 }
